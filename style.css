@@ -1,0 +1,210 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #ffffff;
+}
+
+/* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* Home Section */
+.hero-section {
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.6)
+    ),
+    url("images/event-team.jpg");
+
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.hero-section h1 {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.hero-section p {
+    font-size: 20px;
+}
+
+/* General Sections */
+section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.special-heading {
+    color: #222;
+}
+
+/* Event Cards */
+.card {
+    border: none;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Services */
+.service-box {
+    padding: 25px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #ffffff;
+    height: 100%;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.service-box h4 {
+    margin-bottom: 15px;
+}
+
+/* Packages */
+.package-box {
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: white;
+    height: 100%;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.package-box h3 {
+    font-weight: bold;
+}
+
+.package-box h4 {
+    font-size: 28px;
+    margin: 15px 0;
+}
+
+.package-box ul {
+    text-align: left;
+    line-height: 2;
+}
+
+/* Gallery */
+#gallery img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Schedule Table */
+#schedule table {
+    background-color: white;
+}
+
+#schedule th,
+#schedule td {
+    vertical-align: middle;
+}
+
+/* Media */
+.media-box {
+    padding: 25px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: white;
+}
+
+/* Registration Form */
+form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+}
+
+form input,
+form select,
+form textarea {
+    border-radius: 6px;
+}
+
+/* Location */
+iframe {
+    border-radius: 10px;
+}
+
+/* Contact */
+#contact a {
+    text-decoration: none;
+}
+
+/* Footer */
+footer {
+    margin-top: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+
+    .hero-section h1 {
+        font-size: 40px;
+    }
+
+}
+
+@media (max-width: 767px) {
+
+    .hero-section {
+        min-height: 450px;
+    }
+
+    .hero-section h1 {
+        font-size: 32px;
+    }
+
+    .hero-section p {
+        font-size: 17px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .hero-section h1 {
+        font-size: 27px;
+    }
+
+    section {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+}

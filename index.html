@@ -1,0 +1,2806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EventEase | Event Management</title>
+
+
+    <!-- Bootstrap CSS -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&family=Pacifico&display=swap"
+          rel="stylesheet">
+
+
+    <!-- External CSS -->
+
+    <link rel="stylesheet" href="style.css">
+
+
+    <!-- Internal CSS -->
+
+    <style>
+
+        /* ================= GENERAL ================= */
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fffaf7;
+            color: #333;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .brand-font {
+            font-family: 'Pacifico', cursive;
+        }
+
+
+        /* ================= HEADINGS ================= */
+
+        .special-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            position: relative;
+            margin-bottom: 45px;
+        }
+
+        .special-heading::after {
+            content: "";
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff4d6d, #ff9f1c);
+            margin: 12px auto;
+            border-radius: 10px;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            background: rgba(20, 20, 20, 0.97) !important;
+        }
+
+        .navbar-brand {
+            font-family: 'Pacifico', cursive;
+            font-size: 28px;
+            color: #ffb703 !important;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin-left: 8px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #ffb703 !important;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero-section {
+
+            min-height: 650px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+            linear-gradient(
+                rgba(0,0,0,0.65),
+                rgba(0,0,0,0.65)
+            ),
+            url("images/event-team.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            color: white;
+
+            text-align: center;
+
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero-small {
+
+            color: #ffca3a;
+
+            font-weight: 600;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+        }
+
+        .hero-section h1 {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 65px;
+
+            font-weight: 800;
+
+            margin: 15px 0;
+
+        }
+
+        .hero-section p {
+
+            font-size: 20px;
+
+            line-height: 1.8;
+
+        }
+
+        .hero-buttons {
+            margin-top: 30px;
+        }
+
+        .hero-buttons .btn {
+
+            padding: 12px 28px;
+
+            margin: 5px;
+
+            border-radius: 30px;
+
+            font-weight: 600;
+
+        }
+
+
+        /* ================= ABOUT ================= */
+
+        .about-image {
+
+            border-radius: 25px;
+
+            box-shadow:
+            0 15px 35px rgba(0,0,0,0.15);
+
+        }
+
+        .about-box {
+
+            padding: 20px;
+
+            border-left: 5px solid #ff4d6d;
+
+            background: white;
+
+            border-radius: 10px;
+
+        }
+
+
+        /* ================= EVENT CARDS ================= */
+
+        .event-card {
+
+            border: none;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            background: white;
+
+            box-shadow:
+            0 8px 25px rgba(0,0,0,0.10);
+
+            transition: 0.4s;
+
+            height: 100%;
+
+        }
+
+        .event-card:hover {
+
+            transform: translateY(-12px);
+
+            box-shadow:
+            0 18px 35px rgba(0,0,0,0.18);
+
+        }
+
+        .event-card img {
+
+            height: 220px;
+
+            object-fit: cover;
+
+            transition: 0.5s;
+
+        }
+
+        .event-card:hover img {
+
+            transform: scale(1.05);
+
+        }
+
+        .event-card .card-body {
+
+            padding: 25px;
+
+        }
+
+        .event-icon {
+
+            font-size: 30px;
+
+        }
+
+
+        /* ================= SERVICES ================= */
+
+        .service-box {
+
+            background: white;
+
+            border: none !important;
+
+            border-radius: 18px !important;
+
+            padding: 30px !important;
+
+            box-shadow:
+            0 7px 25px rgba(0,0,0,0.08);
+
+            transition: 0.3s;
+
+        }
+
+        .service-box:hover {
+
+            transform: translateY(-8px);
+
+        }
+
+        .service-icon {
+
+            font-size: 40px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        /* ================= PACKAGES ================= */
+
+        .package-box {
+
+            border: none !important;
+
+            border-radius: 20px !important;
+
+            padding: 35px !important;
+
+            box-shadow:
+            0 8px 25px rgba(0,0,0,0.10);
+
+            transition: 0.3s;
+
+        }
+
+        .package-box:hover {
+
+            transform: translateY(-10px);
+
+        }
+
+        .premium-package {
+
+            border-top:
+            5px solid #ff4d6d !important;
+
+            transform: scale(1.03);
+
+        }
+
+        .price {
+
+            font-size: 34px;
+
+            color: #ff4d6d;
+
+            font-weight: 700;
+
+        }
+
+
+        /* ================= GALLERY ================= */
+
+        .gallery-img {
+
+            width: 100%;
+
+            height: 270px;
+
+            object-fit: cover;
+
+            border-radius: 18px;
+
+            transition: 0.4s;
+
+            box-shadow:
+            0 8px 20px rgba(0,0,0,0.12);
+
+        }
+
+        .gallery-img:hover {
+
+            transform: scale(1.03);
+
+        }
+
+
+        /* ================= SCHEDULE ================= */
+
+        .schedule-table {
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            box-shadow:
+            0 8px 25px rgba(0,0,0,0.08);
+
+        }
+
+
+        /* ================= SMART PLANNER ================= */
+
+        .planner-section {
+
+            background:
+            linear-gradient(
+                135deg,
+                #fff0f3,
+                #fff8e7
+            );
+
+        }
+
+        .planner-box {
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 25px;
+
+            box-shadow:
+            0 12px 35px rgba(0,0,0,0.10);
+
+        }
+
+        .planner-icon {
+
+            font-size: 45px;
+
+        }
+
+        .planner-result {
+
+            display: none;
+
+            margin-top: 25px;
+
+            padding: 20px;
+
+            border-radius: 15px;
+
+            background:
+            linear-gradient(
+                135deg,
+                #fff0f3,
+                #fff8e7
+            );
+
+            border-left:
+            5px solid #ff4d6d;
+
+        }
+
+
+        /* ================= COUNTDOWN ================= */
+
+        .countdown-section {
+
+            background: #171717;
+
+            color: white;
+
+        }
+
+        .countdown-box {
+
+            background:
+            rgba(255,255,255,0.08);
+
+            border-radius: 20px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            height: 100%;
+
+        }
+
+        .countdown-number {
+
+            font-size: 40px;
+
+            font-weight: 700;
+
+            color: #ffca3a;
+
+        }
+
+
+        /* ================= TESTIMONIAL ================= */
+
+        .testimonial {
+
+            background: white;
+
+            border-radius: 20px;
+
+            padding: 30px;
+
+            height: 100%;
+
+            box-shadow:
+            0 8px 25px rgba(0,0,0,0.08);
+
+        }
+
+        .stars {
+
+            color: #ffb703;
+
+            font-size: 20px;
+
+        }
+
+
+        /* ================= REGISTRATION ================= */
+
+        .registration-form {
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 20px;
+
+            box-shadow:
+            0 10px 30px rgba(0,0,0,0.10);
+
+        }
+
+        .form-control,
+        .form-select {
+
+            padding: 12px;
+
+            border-radius: 10px;
+
+        }
+
+
+        /* ================= LOCATION ================= */
+
+        iframe {
+
+            border-radius: 20px;
+
+            box-shadow:
+            0 8px 25px rgba(0,0,0,0.10);
+
+        }
+
+
+        /* ================= CONTACT ================= */
+
+        .contact-box {
+
+            background: #171717;
+
+            color: white;
+
+            border-radius: 25px;
+
+            padding: 40px;
+
+        }
+
+        .contact-item {
+
+            padding: 15px;
+
+            margin: 10px;
+
+            border-radius: 12px;
+
+            background:
+            rgba(255,255,255,0.08);
+
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+
+            background: #111 !important;
+
+        }
+
+        footer .brand-font {
+
+            color: #ffb703;
+
+            font-size: 28px;
+
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width: 768px) {
+
+            .hero-section h1 {
+
+                font-size: 42px;
+
+            }
+
+            .hero-section p {
+
+                font-size: 17px;
+
+            }
+
+            .special-heading {
+
+                font-size: 34px;
+
+            }
+
+            .premium-package {
+
+                transform: none;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ===================================================== -->
+<!-- NAVBAR -->
+<!-- ===================================================== -->
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="#home">
+            EventEase
+        </a>
+
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMenu">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div class="collapse navbar-collapse"
+             id="navbarMenu">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">
+                        About
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#events">
+                        Events
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">
+                        Services
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#packages">
+                        Packages
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#gallery">
+                        Gallery
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#planner">
+                        Smart Planner
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#register">
+                        Register
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- ===================================================== -->
+<!-- HOME -->
+<!-- ===================================================== -->
+
+<section id="home"
+         class="hero-section">
+
+    <div class="container hero-content">
+
+        <div class="hero-small">
+
+            Your Moments • Our Creativity
+
+        </div>
+
+
+        <h1>
+
+            We Create Moments
+            <br>
+            That Matter
+
+        </h1>
+
+
+        <p>
+
+            Welcome to <strong>EventEase</strong> –
+            your trusted partner for planning
+            unforgettable weddings, birthdays,
+            corporate events, concerts and
+            special celebrations.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a href="#events"
+               class="btn btn-warning">
+
+                Explore Events
+
+            </a>
+
+
+            <a href="#planner"
+               class="btn btn-outline-light">
+
+                Smart Event Planner
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================================== -->
+<!-- ABOUT -->
+<!-- ===================================================== -->
+
+<section id="about"
+         class="py-5">
+
+    <div class="container">
+
+        <h2 class="text-center special-heading">
+
+            About EventEase
+
+        </h2>
+
+
+        <div class="row align-items-center g-5">
+
+
+            <div class="col-md-6">
+
+                <img src="images/event-team.jpg"
+                     alt="Event Management Team"
+                     class="img-fluid about-image">
+
+            </div>
+
+
+            <div class="col-md-6">
+
+                <h3>
+
+                    Turning Ideas Into
+                    Beautiful Experiences
+
+                </h3>
+
+
+                <p>
+
+                    EventEase is a modern event
+                    management platform created
+                    to make event planning simple,
+                    creative and stress-free.
+
+                </p>
+
+
+                <p>
+
+                    From selecting a theme to
+                    arranging decoration, catering,
+                    entertainment and guest management,
+                    our team helps bring every event
+                    idea to life.
+
+                </p>
+
+
+                <div class="about-box">
+
+                    <strong>
+                        Our Mission
+                    </strong>
+
+                    <p class="mb-0 mt-2">
+
+                        To create memorable events
+                        through creativity, proper
+                        planning and professional
+                        coordination.
+
+                    </p>
+
+                </div>
+
+
+                <h5 class="mt-4">
+
+                    Why Choose EventEase?
+
+                </h5>
+
+
+                <ul>
+
+                    <li>
+                        Creative and customized
+                        event planning
+                    </li>
+
+                    <li>
+                        Professional decoration
+                        and coordination
+                    </li>
+
+                    <li>
+                        Reliable catering
+                        and entertainment
+                    </li>
+
+                    <li>
+                        Photography and
+                        videography support
+                    </li>
+
+                    <li>
+                        Complete event
+                        management solutions
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================================== -->
+<!-- EVENTS -->
+<!-- ===================================================== -->
+
+<section id="events"
+         class="py-5 bg-light">
+
+    <div class="container">
+
+        <h2 class="text-center special-heading">
+
+            What We Organize
+
+        </h2>
+
+
+        <div class="row g-4">
+
+
+            <!-- Wedding -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="event-card">
+
+                    <img src="images/wedding.jpg"
+                         alt="Wedding Event"
+                         class="w-100">
+
+
+                    <div class="card-body text-center">
+
+                        <div class="event-icon">
+                            💍
+                        </div>
+
+                        <h4>
+                            Wedding Events
+                        </h4>
+
+                        <p>
+
+                            Elegant weddings with
+                            beautiful themes,
+                            decoration, catering
+                            and entertainment.
+
+                        </p>
+
+
+                        <a href="#register"
+                           class="btn btn-dark rounded-pill">
+
+                            Book Now
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Birthday -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="event-card">
+
+                    <img src="images/birthday.jpg"
+                         alt="Birthday Party"
+                         class="w-100">
+
+
+                    <div class="card-body text-center">
+
+                        <div class="event-icon">
+                            🎂
+                        </div>
+
+                        <h4>
+                            Birthday Parties
+                        </h4>
+
+                        <p>
+
+                            Fun-filled celebrations
+                            with creative themes,
+                            cakes and memorable
+                            decorations.
+
+                        </p>
+
+
+                        <a href="#register"
+                           class="btn btn-dark rounded-pill">
+
+                            Book Now
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Corporate -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="event-card">
+
+                    <img src="images/corporate.jpg"
+                         alt="Corporate Event"
+                         class="w-100">
+
+
+                    <div class="card-body text-center">
+
+                        <div class="event-icon">
+                            💼
+                        </div>
+
+                        <h4>
+                            Corporate Events
+                        </h4>
+
+                        <p>
+
+                            Professional meetings,
+                            conferences, seminars
+                            and business
+                            celebrations.
+
+                        </p>
+
+
+                        <a href="#register"
+                           class="btn btn-dark rounded-pill">
+
+                            Book Now
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Concert -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="event-card">
+
+                    <img src="images/concert.jpg"
+                         alt="Music Concert"
+                         class="w-100">
+
+
+                    <div class="card-body text-center">
+
+                        <div class="event-icon">
+                            🎵
+                        </div>
+
+                        <h4>
+                            Concerts
+                        </h4>
+
+                        <p>
+
+                            Exciting music events
+                            with stage, sound,
+                            lighting and
+                            entertainment.
+
+                        </p>
+
+
+                        <a href="#register"
+                           class="btn btn-dark rounded-pill">
+
+                            Book Now
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================================== -->
+<!-- SERVICES -->
+<!-- ===================================================== -->
+
+<section id="services"
+         class="py-5">
+
+    <div class="container">
+
+        <h2 class="text-center special-heading">
+
+            Our Services
+
+        </h2>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="service-box text-center">
+
+                    <div class="service-icon">
+                        🎨
+                    </div>
+
+                    <h4>
+                        Venue Decoration
+                    </h4>
+
+                    <p>
+
+                        Creative themes,
+                        stage decoration,
+                        flowers, lights
+                        and venue styling.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="service-box text-center">
+
+                    <div class="service-icon">
+                        🍽️
+                    </div>
+
+                    <h4>
+                        Catering
+                    </h4>
+
+                    <p>
+
+                        Delicious menus and
+                        professional catering
+                        arrangements for guests.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="service-box text-center">
+
+                    <div class="service-icon">
+                        📸
+                    </div>
+
+                    <h4>
+                        Photography
+                    </h4>
+
+                    <p>
+
+                        Professional photography
+                        and videography for
+                        special moments.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="service-box text-center">
+
+                    <div class="service-icon">
+                        🎧
+                    </div>
+
+                    <h4>
+                        Music & DJ
+                    </h4>
+
+                    <p>
+
+                        DJ, music, sound systems
+                        and entertainment for
+                        every celebration.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="service-box text-center">
+
+                    <div class="service-icon">
+                        👥
+                    </div>
+
+                    <h4>
+                        Guest Management
+                    </h4>
+
+                    <p>
+
+                        Guest registration,
+                        coordination and complete
+                        event assistance.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="service-box text-center">
+
+                    <div class="service-icon">
+                        🚗
+                    </div>
+
+                    <h4>
+                        Transportation
+                    </h4>
+
+                    <p>
+
+                        Convenient transportation
+                        planning for guests and
+                        event teams.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================================== -->
+<!-- PACKAGES -->
+<!-- ===================================================== -->
+
+<section id="packages"
+         class="py-5 bg-light">
+
+    <div class="container">
+
+        <h2 class="text-center special-heading">
+
+            Choose Your Package
+
+        </h2>
+
+
+        <div class="row g-4">
+
+
+            <!-- Basic -->
+
+            <div class="col-md-4">
+
+                <div class="package-box text-center">
+
+                    <h3>
+                        Basic
+                    </h3>
+
+                    <div class="price">
+                        ₹15,000
+                    </div>
+
+                    <p>
+                        Perfect for small celebrations.
+                    </p>
+
+                    <hr>
+
+                    <ul class="text-start">
+
+                        <li>
+                            Basic Decoration
+                        </li>
+
+                        <li>
+                            Catering
+                        </li>
+
+                        <li>
+                            Photography
+                        </li>
+
+                        <li>
+                            Event Coordination
+                        </li>
+
+                    </ul>
+
+
+                    <a href="#register"
+                       class="btn btn-outline-dark rounded-pill">
+
+                        Choose Package
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Premium -->
+
+            <div class="col-md-4">
+
+                <div class="package-box premium-package text-center">
+
+                    <span class="badge bg-danger mb-3">
+                        POPULAR
+                    </span>
+
+
+                    <h3>
+                        Premium
+                    </h3>
+
+
+                    <div class="price">
+                        ₹30,000
+                    </div>
+
+
+                    <p>
+                        Ideal for medium-sized events.
+                    </p>
+
+
+                    <hr>
+
+
+                    <ul class="text-start">
+
+                        <li>
+                            Theme Decoration
+                        </li>
+
+                        <li>
+                            Premium Catering
+                        </li>
+
+                        <li>
+                            Photography & Video
+                        </li>
+
+                        <li>
+                            Music & DJ
+                        </li>
+
+                    </ul>
+
+
+                    <a href="#register"
+                       class="btn btn-danger rounded-pill">
+
+                        Choose Package
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Luxury -->
+
+            <div class="col-md-4">
+
+                <div class="package-box text-center">
+
+                    <h3>
+                        Luxury
+                    </h3>
+
+
+                    <div class="price">
+                        ₹50,000
+                    </div>
+
+
+                    <p>
+                        Designed for large premium events.
+                    </p>
+
+
+                    <hr>
+
+
+                    <ul class="text-start">
+
+                        <li>
+                            Luxury Decoration
+                        </li>
+
+                        <li>
+                            Premium Catering
+                        </li>
+
+                        <li>
+                            Professional Photography
+                        </li>
+
+                        <li>
+                            DJ & Entertainment
+                        </li>
+
+                        <li>
+                            Complete Event Management
+                        </li>
+
+                    </ul>
+
+
+                    <a href="#register"
+                       class="btn btn-outline-dark rounded-pill">
+
+                        Choose Package
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================================== -->
+<!-- GALLERY -->
+<!-- ===================================================== -->
+
+<section id="gallery"
+         class="py-5">
+
+    <div class="container">
+
+        <h2 class="text-center special-heading">
+
+            Moments We Create
+
+        </h2>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-4">
+
+                <img src="images/wedding.jpg"
+                     alt="Wedding"
+                     class="gallery-img">
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <img src="images/birthday.jpg"
+                     alt="Birthday"
+                     class="gallery-img">
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <img src="images/corporate.jpg"
+                     alt="Corporate Event"
+                     class="gallery-img">
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <img src="images/concert.jpg"
+                     alt="Concert"
+                     class="gallery-img">
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <img src="images/conference.jpg"
+                     alt="Conference"
+                     class="gallery-img">
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <img src="images/decoration.jpg"
+                     alt="Event Decoration"
+                     class="gallery-img">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================================== -->
+<!-- EVENT SCHEDULE -->
+<!-- ===================================================== -->
+
+<section id="schedule"
+         class="py-5 bg-light">
+
+    <div class="container">
+
+        <h2 class="text-center special-heading">
+
+            Upcoming Events
+
+        </h2>
+
+
+        <div class="table-responsive schedule-table">
+
+            <table class="table table-bordered table-striped table-hover text-center mb-0">
+
+                <thead class="table-dark">
+
+                    <tr>
+
+                        <th>
+                            Event
+                        </th>
+
+                        <th>
+                            Date
+                        </th>
+
+                        <th>
+                            Time
+                        </th>
+
+                        <th>
+                            Venue
+                        </th>
+
+                        <th>
+                            Category
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            Wedding Celebration
+                        </td>
+
+                        <td>
+                            15 June 2026
+                        </td>
+
+                        <td>
+                            6:00 PM
+                        </td>
+
+                        <td>
+                            Grand Palace
+                        </td>
+
+                        <td>
+                            Wedding
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Birthday Party
+                        </td>
+
+                        <td>
+                            20 June 2026
+                        </td>
+
+                        <td>
+                            5:00 PM
+                        </td>
+
+                        <td>
+                            Royal Banquet
+                        </td>
+
+                        <td>
+                            Birthday
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Corporate Meet
+                        </td>
+
+                        <td>
+                            25 June 2026
+                        </td>
+
+                        <td>
+                            10:00 AM
+                        </td>
+
+                        <td>
+                            City Convention Hall
+                        </td>
+
+                        <td>
+                            Corporate
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Music Concert
+                        </td>
+
+                        <td>
+                            30 June 2026
+                        </td>
+
+                        <td>
+                            7:00 PM
+                        </td>
+
+                        <td>
+                            Open Air Ground
+                        </td>
+
+                        <td>
+                            Concert
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================================== -->
+<!-- ⭐ NEW CREATIVE SECTION: SMART EVENT PLANNER -->
+<!-- ===================================================== -->
+
+<section id="planner"
+         class="py-5 planner-section">
+
+    <div class="container">
+
+        <h2 class="text-center special-heading">
+
+            Smart Event Planner
+
+        </h2>
+
+
+        <p class="text-center mb-5">
+
+            Tell us a little about your event and
+            EventEase will suggest a suitable plan.
+
+        </p>
+
+
+        <div class="planner-box">
+
+            <div class="row g-4">
+
+
+                <!-- Event Type -->
+
+                <div class="col-md-4">
+
+                    <label class="form-label">
+
+                        <strong>
+                            Select Event Type
+                        </strong>
+
+                    </label>
+
+
+                    <select id="plannerEvent"
+                            class="form-select">
+
+                        <option value="">
+                            Select Event
+                        </option>
+
+                        <option value="wedding">
+                            Wedding
+                        </option>
+
+                        <option value="birthday">
+                            Birthday
+                        </option>
+
+                        <option value="corporate">
+                            Corporate Event
+                        </option>
+
+                        <option value="concert">
+                            Concert
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- Guests -->
+
+                <div class="col-md-4">
+
+                    <label class="form-label">
+
+                        <strong>
+                            Number of Guests
+                        </strong>
+
+                    </label>
+
+
+                    <input type="number"
+                           id="plannerGuests"
+                           class="form-control"
+                           placeholder="Example: 100">
+
+                </div>
+
+
+
+                <!-- Budget -->
+
+                <div class="col-md-4">
+
+                    <label class="form-label">
+
+                        <strong>
+                            Approximate Budget
+                        </strong>
+
+                    </label>
+
+
+                    <select id="plannerBudget"
+                            class="form-select">
+
+                        <option value="">
+                            Select Budget
+                        </option>
+
+                        <option value="small">
+                            Below ₹20,000
+                        </option>
+
+                        <option value="medium">
+                            ₹20,000 – ₹40,000
+                        </option>
+
+                        <option value="large">
+                            Above ₹40,000
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- Button -->
+
+                <div class="col-12 text-center">
+
+                    <button type="button"
+                            class="btn btn-danger rounded-pill px-5"
+                            onclick="createPlan()">
+
+                        ✨ Create My Event Plan
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- Result -->
+
+            <div id="plannerResult"
+                 class="planner-result">
+
+                <div class="planner-icon">
+                    🎉
+                </div>
+
+                <h4 id="planTitle">
+                    Your Event Plan
+                </h4>
+
+                <p id="planText"></p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================================== -->
+<!-- EVENT COUNTDOWN -->
+<!-- ===================================================== -->
+
+<section class="py-5 countdown-section">
+
+    <div class="container">
+
+        <h2 class="text-center text-white special-heading">
+
+            Next Big Celebration
+
+        </h2>
+
+
+        <p class="text-center">
+
+            Our demo countdown creates an interactive
+            experience for visitors.
+
+        </p>
+
+
+        <div class="row g-4 mt-3">
+
+
+            <div class="col-6 col-md-3">
+
+                <div class="countdown-box">
+
+                    <div id="days"
+                         class="countdown-number">
+
+                        00
+
+                    </div>
+
+                    <p>
+                        Days
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-3">
+
+                <div class="countdown-box">
+
+                    <div id="hours"
+                         class="countdown-number">
+
+                        00
+
+                    </div>
+
+                    <p>
+                        Hours
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-3">
+
+                <div class="countdown-box">
+
+                    <div id="minutes"
+                         class="countdown-number">
+
+                        00
+
+                    </div>
+
+                    <p>
+                        Minutes
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-3">
+
+                <div class="countdown-box">
+
+                    <div id="seconds"
+                         class="countdown-number">
+
+                        00
+
+                    </div>
+
+                    <p>
+                        Seconds
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================================== -->
+<!-- CLIENT EXPERIENCE -->
+<!-- ===================================================== -->
+
+<section class="py-5">
+
+    <div class="container">
+
+        <h2 class="text-center special-heading">
+
+            Client Experiences
+
+        </h2>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-4">
+
+                <div class="testimonial">
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+
+                        "EventEase made our wedding
+                        planning simple and stress-free.
+                        Everything was beautifully
+                        organized."
+
+                    </p>
+
+                    <strong>
+                        — Priya & Rahul
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="testimonial">
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+
+                        "The decoration and guest
+                        management were excellent.
+                        Our birthday celebration
+                        became very special."
+
+                    </p>
+
+                    <strong>
+                        — Ananya
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="testimonial">
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+
+                        "Professional planning,
+                        creative ideas and smooth
+                        coordination made our
+                        corporate event successful."
+
+                    </p>
+
+                    <strong>
+                        — Arjun Mehta
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================================== -->
+<!-- REGISTRATION -->
+<!-- ===================================================== -->
+
+<section id="register"
+         class="py-5 bg-light">
+
+    <div class="container">
+
+        <h2 class="text-center special-heading">
+
+            Plan Your Event
+
+        </h2>
+
+
+        <div class="registration-form">
+
+            <form>
+
+
+                <div class="row g-4">
+
+
+                    <div class="col-md-6">
+
+                        <label for="name"
+                               class="form-label">
+
+                            Full Name
+
+                        </label>
+
+
+                        <input type="text"
+                               id="name"
+                               class="form-control"
+                               placeholder="Enter your full name"
+                               required>
+
+                    </div>
+
+
+
+                    <div class="col-md-6">
+
+                        <label for="email"
+                               class="form-label">
+
+                            Email
+
+                        </label>
+
+
+                        <input type="email"
+                               id="email"
+                               class="form-control"
+                               placeholder="Enter your email"
+                               required>
+
+                    </div>
+
+
+
+                    <div class="col-md-6">
+
+                        <label for="phone"
+                               class="form-label">
+
+                            Phone Number
+
+                        </label>
+
+
+                        <input type="tel"
+                               id="phone"
+                               class="form-control"
+                               placeholder="Enter your phone number"
+                               required>
+
+                    </div>
+
+
+
+                    <div class="col-md-6">
+
+                        <label for="eventType"
+                               class="form-label">
+
+                            Event Type
+
+                        </label>
+
+
+                        <select id="eventType"
+                                class="form-select">
+
+                            <option>
+                                Select Event
+                            </option>
+
+                            <option>
+                                Wedding
+                            </option>
+
+                            <option>
+                                Birthday
+                            </option>
+
+                            <option>
+                                Corporate Event
+                            </option>
+
+                            <option>
+                                Concert
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <div class="col-md-6">
+
+                        <label for="date"
+                               class="form-label">
+
+                            Event Date
+
+                        </label>
+
+
+                        <input type="date"
+                               id="date"
+                               class="form-control">
+
+                    </div>
+
+
+
+                    <div class="col-md-6">
+
+                        <label for="guests"
+                               class="form-label">
+
+                            Number of Guests
+
+                        </label>
+
+
+                        <input type="number"
+                               id="guests"
+                               class="form-control"
+                               placeholder="Number of guests">
+
+                    </div>
+
+
+
+                    <div class="col-12">
+
+                        <label class="form-label">
+
+                            Select Package
+
+                        </label>
+
+
+                        <div>
+
+                            <input type="radio"
+                                   name="package"
+                                   value="Basic">
+
+                            Basic
+
+
+                            <input type="radio"
+                                   name="package"
+                                   value="Premium"
+                                   class="ms-3">
+
+                            Premium
+
+
+                            <input type="radio"
+                                   name="package"
+                                   value="Luxury"
+                                   class="ms-3">
+
+                            Luxury
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-12">
+
+                        <label for="message"
+                               class="form-label">
+
+                            Additional Requirements
+
+                        </label>
+
+
+                        <textarea id="message"
+                                  class="form-control"
+                                  rows="4"
+                                  placeholder="Tell us about your event requirements"></textarea>
+
+                    </div>
+
+
+
+                    <div class="col-12">
+
+                        <div class="form-check">
+
+                            <input type="checkbox"
+                                   class="form-check-input"
+                                   id="agree"
+                                   required>
+
+
+                            <label class="form-check-label"
+                                   for="agree">
+
+                                I agree to the event
+                                registration terms.
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-12 text-center">
+
+                        <button type="submit"
+                                class="btn btn-danger px-4 rounded-pill">
+
+                            Submit Registration
+
+                        </button>
+
+
+                        <button type="reset"
+                                class="btn btn-secondary px-4 rounded-pill">
+
+                            Reset
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================================== -->
+<!-- LOCATION -->
+<!-- ===================================================== -->
+
+<section id="location"
+         class="py-5">
+
+    <div class="container">
+
+        <h2 class="text-center special-heading">
+
+            Find Us
+
+        </h2>
+
+
+        <p class="text-center mb-4">
+
+            EventEase is based in
+            Nagpur, Maharashtra.
+
+        </p>
+
+
+        <iframe
+
+            src="https://www.google.com/maps?q=Nagpur%20Maharashtra&output=embed"
+
+            width="100%"
+
+            height="400"
+
+            style="border:0;"
+
+            allowfullscreen=""
+
+            loading="lazy"
+
+            title="EventEase Location">
+
+        </iframe>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================================== -->
+<!-- CONTACT -->
+<!-- ===================================================== -->
+
+<section id="contact"
+         class="py-5">
+
+    <div class="container">
+
+        <div class="contact-box text-center">
+
+
+            <h2 class="special-heading text-white">
+
+                Let's Create Something Special
+
+            </h2>
+
+
+            <p>
+
+                Have an event in mind?
+                Let EventEase turn your idea
+                into a memorable experience.
+
+            </p>
+
+
+            <div class="row mt-4">
+
+
+                <div class="col-md-4">
+
+                    <div class="contact-item">
+
+                        📞
+
+                        <strong>
+                            Phone
+                        </strong>
+
+                        <br>
+
+
+                        <a href="tel:+919876543210"
+                           class="text-white">
+
+                            +91 98765 43210
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-md-4">
+
+                    <div class="contact-item">
+
+                        📧
+
+                        <strong>
+                            Email
+                        </strong>
+
+                        <br>
+
+
+                        <a href="mailto:eventease@example.com"
+                           class="text-white">
+
+                            eventease@example.com
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-md-4">
+
+                    <div class="contact-item">
+
+                        📍
+
+                        <strong>
+                            Location
+                        </strong>
+
+                        <br>
+
+                        Nagpur, Maharashtra
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================================== -->
+<!-- FOOTER -->
+<!-- ===================================================== -->
+
+<footer class="text-white text-center py-4">
+
+    <div class="container">
+
+        <div class="brand-font">
+            EventEase
+        </div>
+
+
+        <p>
+
+            Creating memorable moments
+            through creativity, planning
+            and passion.
+
+        </p>
+
+
+        <p class="mb-0">
+
+            © 2026 EventEase.
+            All Rights Reserved.
+
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- ===================================================== -->
+<!-- BOOTSTRAP JAVASCRIPT -->
+<!-- ===================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+
+<!-- ===================================================== -->
+<!-- SMART EVENT PLANNER JAVASCRIPT -->
+<!-- ===================================================== -->
+
+<script>
+
+function createPlan() {
+
+    let event =
+        document.getElementById("plannerEvent").value;
+
+    let guests =
+        document.getElementById("plannerGuests").value;
+
+    let budget =
+        document.getElementById("plannerBudget").value;
+
+
+    let result =
+        document.getElementById("plannerResult");
+
+    let title =
+        document.getElementById("planTitle");
+
+    let text =
+        document.getElementById("planText");
+
+
+    if (event === "" ||
+        guests === "" ||
+        budget === "") {
+
+        alert("Please select all options to create your event plan.");
+
+        return;
+
+    }
+
+
+    let eventName = "";
+
+
+    if (event === "wedding") {
+
+        eventName = "Wedding Celebration";
+
+    }
+
+    else if (event === "birthday") {
+
+        eventName = "Birthday Party";
+
+    }
+
+    else if (event === "corporate") {
+
+        eventName = "Corporate Event";
+
+    }
+
+    else if (event === "concert") {
+
+        eventName = "Music Concert";
+
+    }
+
+
+    let packageName = "";
+
+
+    if (budget === "small") {
+
+        packageName = "Basic Package";
+
+    }
+
+    else if (budget === "medium") {
+
+        packageName = "Premium Package";
+
+    }
+
+    else {
+
+        packageName = "Luxury Package";
+
+    }
+
+
+    title.innerHTML =
+        "✨ Your Suggested Plan";
+
+
+    text.innerHTML =
+
+        "For your <strong>" +
+        eventName +
+        "</strong> with approximately <strong>" +
+        guests +
+        " guests</strong>, we suggest our " +
+        "<strong>" +
+        packageName +
+        "</strong>. " +
+
+        "Our team can help with decoration, " +
+        "catering, guest management, photography " +
+        "and entertainment. Let's make your event memorable!";
+
+
+    result.style.display = "block";
+
+}
+
+
+<!-- ===================================================== -->
+<!-- EVENT COUNTDOWN -->
+<!-- ===================================================== -->
+
+let eventDate =
+    new Date("December 31, 2026 23:59:59").getTime();
+
+
+let countdown =
+    setInterval(function() {
+
+
+        let now =
+            new Date().getTime();
+
+
+        let distance =
+            eventDate - now;
+
+
+        let days =
+            Math.floor(
+                distance /
+                (1000 * 60 * 60 * 24)
+            );
+
+
+        let hours =
+            Math.floor(
+                (distance %
+                (1000 * 60 * 60 * 24)) /
+                (1000 * 60 * 60)
+            );
+
+
+        let minutes =
+            Math.floor(
+                (distance %
+                (1000 * 60 * 60)) /
+                (1000 * 60)
+            );
+
+
+        let seconds =
+            Math.floor(
+                (distance %
+                (1000 * 60)) /
+                1000
+            );
+
+
+        document.getElementById("days")
+                .innerHTML = days;
+
+
+        document.getElementById("hours")
+                .innerHTML = hours;
+
+
+        document.getElementById("minutes")
+                .innerHTML = minutes;
+
+
+        document.getElementById("seconds")
+                .innerHTML = seconds;
+
+
+        if (distance < 0) {
+
+            clearInterval(countdown);
+
+            document.getElementById("days")
+                    .innerHTML = "00";
+
+            document.getElementById("hours")
+                    .innerHTML = "00";
+
+            document.getElementById("minutes")
+                    .innerHTML = "00";
+
+            document.getElementById("seconds")
+                    .innerHTML = "00";
+
+        }
+
+
+    }, 1000);
+
+</script>
+
+
+</body>
+
+</html>
